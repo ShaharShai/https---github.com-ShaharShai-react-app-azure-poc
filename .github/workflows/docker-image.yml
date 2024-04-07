@@ -24,7 +24,7 @@ jobs:
       - name: Build React Vite project
         run: |
           npm run build
-          ls -l /app/dist  # Debugging step to list contents of /app/dist
+
 
       - name: Build Docker image
         run: docker build -t my-react-app .
