@@ -22,12 +22,11 @@ jobs:
         run: npm install
 
       - name: Build React Vite project
-        run: |
-          npm run build
-
+        run: npm run build
 
       - name: Build Docker image
         run: docker build -t my-react-app .
+          --build-arg BUILD_OUTPUT_DIR=dist  # Pass build output directory as build argument
 
       - name: Push Docker image to Docker Hub
         uses: docker/build-push-action@v2
@@ -36,4 +35,3 @@ jobs:
           password: dckr_pat_yFxC7puAA0r38kAI9RaPdaAZXYs
           repository: your-docker-username/my-react-app
           tag_with_ref: true
-
